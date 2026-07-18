@@ -48,12 +48,12 @@ export default function Modal() {
       }
       break;
     case "editProject":
-      if (data && "name" in data) {
+      if (data && "name" in data && "description" in data) {
         renderComponent = <EditProjectModal projectDetails={data} />;
       }
       break;
     case "deleteProject":
-      if (data && "_id" in data) {
+      if (data && "name" in data) {
         renderComponent = <DeleteProjectModal projectId={data._id} projectName={data.name} />;
       }
       break;
