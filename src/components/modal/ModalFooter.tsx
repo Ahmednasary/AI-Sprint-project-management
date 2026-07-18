@@ -6,15 +6,23 @@ interface ModalFooterProps {
   icon?: ReactNode;
   onConfirm?: () => void;
   onCancel?: () => void;
+  onClick?: () => void;
   disabled?: boolean;
 }
 
-const ModalFooter = ({ label, icon, onConfirm, onCancel, disabled }: ModalFooterProps) => {
+const ModalFooter = ({
+  label,
+  icon,
+  onConfirm,
+  onCancel,
+  onClick,
+  disabled,
+}: ModalFooterProps) => {
   return (
     <div className="mt-3 flex items-center justify-end space-x-2">
       <Button
         type="button"
-        onClick={onCancel}
+        onClick={onCancel ?? onClick}
         label="Cancel"
         className={`border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700 font-medium shadow-sm hover:-translate-y-0.5`}
       />
